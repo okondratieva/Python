@@ -1,0 +1,80 @@
+from unittest import TestCase, main
+from polynom import Polynomial
+
+class Test_test1(TestCase):
+
+    def setup_method(self):
+
+        self.p1=Polynomial([1, 2, 3])
+        self.p2=Polynomial([4, 5])
+        self.p3=Polynomial([-1])
+        self.p4=Polynomial([3, 0, 7])
+        self.p5=Polynomial([3.5, 4,2,0])
+       
+    def test_print(self):#method __str__
+        self.setup_method()
+
+        print(self.p1)
+        print(self.p2)
+        print(self.p3)
+        print(self.p4)
+        print(self.p5)
+
+    def test_eq(self):#method __eq__
+        self.setup_method()
+
+        assert not self.p2==self.p1
+        assert self.p1==Polynomial([1,2,3])
+        assert self.p5==Polynomial([3.5, 4, 2, 0])
+
+    def test_neq(self):#method __ne__
+        self.setup_method()
+        tmp=Polynomial([1,3,3])
+        assert self.p1!=tmp
+
+    def test_add(self):#method __add__ 
+        self.setup_method()
+        n1=self.p2+self.p3
+        n2=self.p1+self.p2
+        n5=self.p1+self.p5
+
+        n3=self.p2+4
+        n4=self.p5+1.5
+
+        assert n1==Polynomial([4,4])
+        assert n2==Polynomial([1,6,8])
+        assert n3==Polynomial([4,9])
+        assert n4==Polynomial([3.5, 4, 2, 1.5])
+        assert n5==Polynomial([3.5, 5, 4, 3])
+
+    def test_sub(self): #method __sub__
+        self.setup_method()
+
+        n1=self.p1-self.p2
+        n2=self.p4-self.p1
+        n3=self.p1-self.p3
+        n4=self.p2-self.p1
+        n5=self.p5-self.p1
+        n6=self.p2-(-2)
+
+        assert n1==Polynomial([1, -2, -2])
+        assert n2==Polynomial([2, -2, 4])
+        assert n3==Polynomial([1, 2, 4])
+        assert n4==Polynomial([-1, 2, 2])
+        assert n5==Polynomial([3.5, 3, 0, -3])
+        assert n6==Polynomial([4,7])
+
+    def test_mul(self):#method __mul__ 
+        self.setup_method()
+
+        n1=self.p1*(5)
+        n2=self.p5*(-2)
+        n3=self.p1*self.p2
+
+        assert n1==Polynomial([5,10,15])
+        assert n2==Polynomial([-7,-8,-4, 0])
+        assert n3==Polynomial([4,13,22,15])
+        
+
+if __name__ == '__main__':
+    main()
