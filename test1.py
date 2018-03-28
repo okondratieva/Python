@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from polynom import Polynomial
+from polynomial import Polynomial
 
 class Test_test1(TestCase):
 
@@ -13,7 +13,7 @@ class Test_test1(TestCase):
        
     def test_print(self):#method __str__
         self.setup_method()
-
+        print(Polynomial([0]))
         print(self.p1)
         print(self.p2)
         print(self.p3)
@@ -40,6 +40,7 @@ class Test_test1(TestCase):
 
         n3=self.p2+4
         n4=self.p5+1.5
+        
 
         assert n1==Polynomial([4,4])
         assert n2==Polynomial([1,6,8])
@@ -74,7 +75,19 @@ class Test_test1(TestCase):
         assert n1==Polynomial([5,10,15])
         assert n2==Polynomial([-7,-8,-4, 0])
         assert n3==Polynomial([4,13,22,15])
-        
+
+    def test_neg(self):#Exceptions
+        self.setup_method()
+        s="str"        
+        with self.assertRaises(TypeError):
+            self.p3==-1
+            self.p3!=s
+            m1=Polynomial(1)
+            m2=self.p1+s
+            m3=self.p1-s
+            m4=self.p1*s
+            
+            
 
 if __name__ == '__main__':
     main()
