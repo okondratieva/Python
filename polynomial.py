@@ -48,10 +48,9 @@ class Polynomial(object):
             new=[p*i for i in self.coeffs]
         else:
             new=[0]*(self.n+p.n+1) 
-            for i in range(self.n+1):# можно for i, c1 in enumerate(self.coeffs);  
-                for j in range(p.n+1):# можно for j, c2 in enumerate(p.coeffs)
+            for i in range(self.n+1):
+                for j in range(p.n+1):
                     new[i+j]=new[i+j]+self.coeffs[i]*p.coeffs[j]
-                    # new[i+j]=new[i+j]+c1*c2
         return Polynomial(new)
 
     def __eq__(self, p):
