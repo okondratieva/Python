@@ -40,7 +40,6 @@ class Test_test1(TestCase):
 
         n3=self.p2+4
         n4=self.p5+1.5
-        
 
         assert n1==Polynomial([4,4])
         assert n2==Polynomial([1,6,8])
@@ -78,7 +77,7 @@ class Test_test1(TestCase):
 
     def test_neg(self):#Exceptions
         self.setup_method()
-        s="str"        
+        s="str"      
         with self.assertRaises(TypeError):
             self.p3==-1
             self.p3!=s
@@ -86,8 +85,18 @@ class Test_test1(TestCase):
             m2=self.p1+s
             m3=self.p1-s
             m4=self.p1*s
-            
-            
+            m5=Polynomial(['a'])
+    
+    def test_reverse(self):
+        self.setup_method()
+        n1=1+self.p1 #___radd__
+        n2=3-self.p2 #__rsub__
+        n3=2*self.p4 #__rmul__
+        assert n1==Polynomial([1,2,4])
+        assert n2==Polynomial([-4, -2])
+        assert n3==Polynomial([6,0,14])
+
+        
 
 if __name__ == '__main__':
     main()

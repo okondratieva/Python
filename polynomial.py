@@ -1,10 +1,10 @@
 class Polynomial(object):
     def __init__(self, coeffs):
-        if type(coeffs) is list:
+        if (type(coeffs) is list) and all(isinstance(x,(int, float)) for x in coeffs):
             self.coeffs = coeffs
             self.n=len(coeffs)-1
         else:
-            raise TypeError("coeffs is not list")
+            raise TypeError("coeffs is not list of int or float")
 
     def __str__(self):
         s=''
@@ -83,3 +83,12 @@ class Polynomial(object):
        return not(self==p)
      else:
         raise TypeError("Incorrect type")
+
+    def __radd__(self, p):
+        return self.__add__(p)
+
+    def __rsub__(self, p):
+        return self.__mul__(-1).__add__(p)
+
+    def __rmul__(self, p):
+        return self.__mul__(p)
