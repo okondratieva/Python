@@ -10,20 +10,28 @@ class Test_test1(TestCase):
         self.p3=Polynomial([-1])
         self.p4=Polynomial([3, 0, 7])
         self.p5=Polynomial([3.5, 4,2,0])
+        self.p6=Polynomial([0,1,6,8])
+        self.p7=Polynomial([0,0,0,0,1,6,8])
+        self.p8=Polynomial([0])
+        self.p9=Polynomial([0,0,0,0,-1,6,0,8])
        
+
     def test_print(self):#method __str__
         self.setup_method()
-        print(Polynomial([0]))
+        print(Polynomial([0,0]))
         print(self.p1)
         print(self.p2)
         print(self.p3)
         print(self.p4)
         print(self.p5)
+        print(self.p9+Polynomial([0,0,3,0]))
 
     def test_eq(self):#method __eq__
         self.setup_method()
 
         assert not self.p2==self.p1
+        assert self.p6==self.p7
+        assert Polynomial([0,0])==self.p8
         assert self.p1==Polynomial([1,2,3])
         assert self.p5==Polynomial([3.5, 4, 2, 0])
 
@@ -40,12 +48,14 @@ class Test_test1(TestCase):
 
         n3=self.p2+4
         n4=self.p5+1.5
+        n6=self.p9+Polynomial([0,0,3,0])
 
         assert n1==Polynomial([4,4])
         assert n2==Polynomial([1,6,8])
         assert n3==Polynomial([4,9])
         assert n4==Polynomial([3.5, 4, 2, 1.5])
         assert n5==Polynomial([3.5, 5, 4, 3])
+        assert n6==Polynomial([0,-1,6,3,8])
 
     def test_sub(self): #method __sub__
         self.setup_method()

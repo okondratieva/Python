@@ -1,8 +1,12 @@
 class Polynomial(object):
     def __init__(self, coeffs):
         if (type(coeffs) is list) and all(isinstance(x,(int, float)) for x in coeffs):
-            self.coeffs = coeffs
-            self.n=len(coeffs)-1
+            i=0
+            n=len(coeffs)-1
+            while i<n and coeffs[i]==0:
+                i=i+1
+            self.coeffs = coeffs[i:(n+1)]
+            self.n=len(self.coeffs)-1
         else:
             raise TypeError("coeffs is not list of int or float")
 
@@ -13,7 +17,7 @@ class Polynomial(object):
         else:
             for i in range(self.n):
              if self.coeffs[i]!=0:
-                s=s+str(self.coeffs[i])+'*x' + str(self.n-i)+'+'
+                s=s+str(self.coeffs[i])+'x' + str(self.n-i)+'+'
             if self.coeffs[self.n]!=0:
                 s=s+str(self.coeffs[self.n])
             else:
