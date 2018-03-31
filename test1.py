@@ -24,7 +24,21 @@ class Test_test1(TestCase):
         print(self.p3)
         print(self.p4)
         print(self.p5)
+        print(Polynomial([1,-1,1,-1,0,0,-8]))
+        print(Polynomial([0,0,0,0,1,6,-8]))
         print(self.p9+Polynomial([0,0,3,0]))
+        print(Polynomial([-7,-8,0,3,1,-4, 0]))
+        print(Polynomial([-7,-8,0,3,1,-4, 1]))
+        print(Polynomial([-7,-8,0,3,1,-4, -1]))
+
+    def test_copy(self):
+        self.setup_method()
+        m1=self.p7
+        print(m1 is self.p7)
+        m1=m1*(-1)
+        assert m1==(-1)*self.p7
+        assert(m1+self.p7)==Polynomial([0,0])
+       
 
     def test_eq(self):#method __eq__
         self.setup_method()

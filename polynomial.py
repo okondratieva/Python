@@ -15,13 +15,52 @@ class Polynomial(object):
         if self.n==0:
             s=s+str(self.coeffs[self.n])
         else:
-            for i in range(self.n):
-             if self.coeffs[i]!=0:
-                s=s+str(self.coeffs[i])+'x' + str(self.n-i)+'+'
-            if self.coeffs[self.n]!=0:
-                s=s+str(self.coeffs[self.n])
+            if (self.coeffs[0]==1):
+                if (self.n)!=1:
+                    s='x'+ str(self.n)
+                else:
+                    s='x'
+            elif (self.coeffs[0]==-1):
+                if (self.n)!=1:
+                    s='-x'+ str(self.n)
+                else:
+                    s='-x'
             else:
-             s=s[:-1]
+                if (self.n)!=1:
+                    s=str(self.coeffs[0])+'x'+ str(self.n-0)
+                else:
+                    s=str(self.coeffs[0])+'x'
+
+
+            for i in range(1,self.n):
+             if self.coeffs[i]!=0:
+                 if (self.coeffs[i]>0):
+                     if(self.coeffs[i]!=1):
+                         if(self.n-i)!=1:
+                            s=s+'+'+ str(self.coeffs[i])+'x' + str(self.n-i)
+                         else:
+                             s=s+'+'+ str(self.coeffs[i])+'x'
+                     else:
+                         if(self.n-i)!=1:
+                            s=s+'+'+'x' + str(self.n-i)
+                         else:
+                             s=s+'+'+'x'
+                 else:
+                     if(self.coeffs[i]!=-1):
+                         if(self.n-i)!=1:
+                            s=s+ str(self.coeffs[i])+'x' + str(self.n-i)
+                         else:
+                             s=s+ str(self.coeffs[i])+'x'
+                     else:
+                         if(self.n-i)!=1:
+                            s=s+'-'+'x' + str(self.n-i)
+                         else:
+                             s=s+'-'+'x'
+            if self.coeffs[self.n]!=0:
+                if (self.coeffs[self.n]>0):
+                    s=s+'+'+str(self.coeffs[self.n])
+                else:
+                    s=s+str(self.coeffs[self.n])
         return s
 
     def __add__(self, p):
