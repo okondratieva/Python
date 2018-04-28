@@ -113,7 +113,7 @@ class Test_test1(TestCase):
     
     def test_reverse(self):
         self.setup_method()
-        n1=1+self.p1 #___radd__
+        n1=1+self.p1 #___radd
         n2=3-self.p2 #__rsub__
         n3=2*self.p4 #__rmul__
         assert n1==Polynomial([1,2,4])
@@ -123,4 +123,4 @@ class Test_test1(TestCase):
         
 
 if __name__ == '__main__':
-    main()
+    unittest.main(testRunner=xmlrunner.XML)
