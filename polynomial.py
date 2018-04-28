@@ -8,7 +8,7 @@ class Polynomial(object):
             self.coeffs = coeffs[i:(n+1)]
             self.n=len(self.coeffs)-1
         else:
-            raise TypeError("coeffs is not list of int or float")
+            raise TypeError("error: coeffs is not list of int or float")
 
     def __str__(self):
         s=''
