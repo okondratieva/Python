@@ -123,4 +123,4 @@ class Test_test1(TestCase):
         
 
 if __name__ == '__main__':
-    unittest.main(testRunner=xmlrunner.XML)
+   main()
