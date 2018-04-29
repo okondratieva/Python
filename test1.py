@@ -1,6 +1,7 @@
-from unittest import TestCase, main
+#from unittest import TestCase, main
 from polynomial import Polynomial
-
+import unittest
+import xmlrunner
 class Test_test1(TestCase):
 
     def setup_method(self):
@@ -123,4 +124,5 @@ class Test_test1(TestCase):
         
 
 if __name__ == '__main__':
-   main()
+	xmlrunner.XMLTestRunner(output='python_tests_xml').run(unittest.TestLoader().discover('Python'))
+  # main()
