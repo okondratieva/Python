@@ -20,22 +20,6 @@ class Test_test1(unittest.TestCase):
 	self.setup_method()	
 	assert self.p1==Polynomial([1,2,3])
 
- '''   def test_print(self):
-        self.setup_method()
-        print(Polynomial([0,0]))
-        print(self.p1)
-        print(self.p2)
-        print(self.p3)
-        print(self.p4)
-        print(self.p5)
-        print(Polynomial([1,-1,1,-1,0,0,-8]))
-        print(Polynomial([0,0,0,0,1,6,-8]))
-        print(self.p9+Polynomial([0,0,3,0]))
-        print(Polynomial([-7,-8,0,3,1,-4, 0]))
-        print(Polynomial([-7,-8,0,3,1,-4, 1]))
-        print(Polynomial([-7,-8,0,3,1,-4, -1]))
-'''
-
     def test_copy(self):
         self.setup_method()
         m1=self.p7

@@ -20,7 +20,7 @@ class Test_test1(unittest.TestCase):
 	self.setup_method()	
 	assert self.p1==Polynomial([1,2,3])
 
- '''   def test_print(self):#method __str__
+ '''   def test_print(self):
         self.setup_method()
         print(Polynomial([0,0]))
         print(self.p1)
