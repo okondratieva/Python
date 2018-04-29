@@ -16,6 +16,9 @@ class Test_test1(unittest.TestCase):
         self.p8=Polynomial([0])
         self.p9=Polynomial([0,0,0,0,-1,6,0,8])
        
+    def test_bag(self):
+	self.setup_method()	
+	assert self.p1==Polynomial([1,2,3])
 
     def test_print(self):#method __str__
         self.setup_method()
