@@ -17,10 +17,10 @@ class Test_test1(unittest.TestCase):
         self.p9=Polynomial([0,0,0,0,-1,6,0,8])
        
     def test_bag(self):
-	#self.setup_method()	
+	self.setup_method()	
 	assert self.p1==Polynomial([1,2,3])
 
-    def test_print(self):#method __str__
+ '''   def test_print(self):#method __str__
         self.setup_method()
         print(Polynomial([0,0]))
         print(self.p1)
@@ -34,6 +34,7 @@ class Test_test1(unittest.TestCase):
         print(Polynomial([-7,-8,0,3,1,-4, 0]))
         print(Polynomial([-7,-8,0,3,1,-4, 1]))
         print(Polynomial([-7,-8,0,3,1,-4, -1]))
+'''
 
     def test_copy(self):
         self.setup_method()
