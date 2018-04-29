@@ -124,6 +124,7 @@ class Test_test1(unittest.TestCase):
         
 
 if __name__ == '__main__':
-	with open("result.xml", 'wb') as output:
-		unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output))
+	xmlrunner.XMLTestRunner(output='result').run(unittest.TestLoader().loadTestsFromTestCase(Test_test1))
+	#with open("result.xml", 'wb') as output:
+	#	unittest.main(testRunner=xmlrunner.XMLTestRunner(output=output))
   #main()
