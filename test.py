@@ -70,7 +70,7 @@ class Test_test1(unittest.TestCase):
         n5=self.p5-self.p1
         n6=self.p2-(-2)
 
-        assert n1==Polynomial([1, -2, -2])
+        assert n1==Polynomial([1, -5, -2])
         assert n2==Polynomial([2, -2, 4])
         assert n3==Polynomial([1, 2, 4])
         assert n4==Polynomial([-1, 2, 2])
